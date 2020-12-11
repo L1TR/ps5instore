@@ -9,7 +9,7 @@ All configuration variables are stored in the src/common/config.py
 - Check your chatid at url: https://api.telegram.org/bot1491939565:AAH7Regr6eomY1-rLC1qtCF2zRF5-rEN3Ac/getUpdates
 - Change variable TELEGRAM_CHATID
 
-*OR*
+<b>OR</b> if you don't see chat id
 
 - Register your own bot: https://core.telegram.org/bots#6-botfather
 - Change variables TELEGRAM_TOKEN and TELEGRAM_CHATID
