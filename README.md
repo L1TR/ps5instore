@@ -7,11 +7,6 @@ Save to the file: <code>docker save ps5instore > ps5instore.tar</code>
 
 All configuration variables are stored in the src/common/config.py
 1. (required) <b>Telegram</b> bot to receive updates
-- Check your chatid at url: https://api.telegram.org/bot1491939565:AAH7Regr6eomY1-rLC1qtCF2zRF5-rEN3Ac/getUpdates
-- Change variable TELEGRAM_CHATID
-
-<b>OR</b> if you don't see chat id
-
 - Register your own bot: https://core.telegram.org/bots#6-botfather
 - Change variables TELEGRAM_TOKEN and TELEGRAM_CHATID
 
