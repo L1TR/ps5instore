@@ -9,8 +9,9 @@ from target.target_checker import TargetChecker
 from gamestop.gamestop_checker import GameStopChecker
 from bestbuy.bestbuy_checker import BestBuyChecker
 from sonydirect.queue_it_checker import QueueItChecker
+from common.config import STORES_TO_CHECK, Stores
 
-IS_DEBUG = __debug__
+IS_DEBUG = False
 
 
 class Runner(object):
@@ -24,6 +25,15 @@ class Runner(object):
         self.gamestopChecker = GameStopChecker()
         self.bestbuyChecker = BestBuyChecker()
         self.queueItChecker = QueueItChecker()
+        self.storeRunMapping = {
+            Stores.BestBuy: self.checkBestBuy,
+            Stores.Target: self.checkTarget,
+            Stores.Walmart: self.checkWalmart,
+            Stores.GameStop: self.checkGameStop,
+            Stores.Sony: self.checkSony,
+            Stores.SonyQueue: self.checkSonyQueue,
+            Stores.Amazon: self.checkAmazon
+        }
         self.states = defaultdict(bool)
 
     def checkAmazon(self):
@@ -40,6 +50,7 @@ class Runner(object):
         :param serviceName: name of the store
         :param serviceKey: key for dict self.states
         """
+        print("Checking {store}".format(store=serviceName))
         serviceKey = serviceKey or serviceName.lower()
         in_store, adds = service.checkState(is_digital=True)
         if not in_store:
@@ -81,17 +92,11 @@ class Runner(object):
             self.states['queue'] = False
 
     def runCheck(self):
-        # self.checkSonyQueue()
-        # self.checkAmazon()
-        self.checkTarget()
-        self.checkWalmart()
-        self.checkSony()
-        self.checkGameStop()
-        self.checkBestBuy()
+        for store in STORES_TO_CHECK:
+            self.storeRunMapping[store]()
 
 
-def main(args):
-    print("Running with args:", args)
+def main():
     runner = Runner()
     if IS_DEBUG:
         runner.runCheck()

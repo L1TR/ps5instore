@@ -1,9 +1,7 @@
-# Digital 
-# PS5 
-
-
 import json
 from common.loader import DataLoader
+from common.config import DEFAULT_RETURN_ON_FAULT
+
 
 class GameStopChecker(object):
     def __init__(self):
@@ -20,4 +18,4 @@ class GameStopChecker(object):
             return (len(stores) > 0, 'Digital' if is_digital else 'Not digital')
         except:
             # Possible in stock
-            return (True, 'Digital' if is_digital else 'Not digital')
+            return (DEFAULT_RETURN_ON_FAULT, 'Digital' if is_digital else 'Not digital')

@@ -1,5 +1,3 @@
-ARG STORES=["Sony","Walmart","Target","GameStop","BestBuy"]
-
 FROM python:3
 
 ADD src /

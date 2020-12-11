@@ -1,6 +1,7 @@
 import json
 import requests
 from requests import cookies
+from common.config import DEFAULT_RETURN_ON_FAULT
 
 
 COOKIES_KEY = "TS01ba8c4b"
@@ -30,4 +31,4 @@ class WalmartChecker(object):
         except:
             # Possible in stock
             print("Walmart. Error. Response: ", response.text)
-            return (True, 'Digital' if is_digital else 'Not digital')
+            return (DEFAULT_RETURN_ON_FAULT, 'Digital' if is_digital else 'Not digital')

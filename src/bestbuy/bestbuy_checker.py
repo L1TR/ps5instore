@@ -1,6 +1,6 @@
 import json
 from common.loader import DataLoader
-from common.config import BESTBUY_DEVKEY
+from common.config import BESTBUY_DEVKEY, DEFAULT_RETURN_ON_FAULT
 
 
 class BestBuyChecker(object):
@@ -20,4 +20,4 @@ class BestBuyChecker(object):
         except:
             # Possible in stock
             print("BestBuy", content)
-            return (True, content)
+            return (DEFAULT_RETURN_ON_FAULT, content)
