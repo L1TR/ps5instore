@@ -1,6 +1,7 @@
 # ps5instore
-Build: docker build -t ps5instore .
-Save to the file: docker save ps5instore > ps5instore.tar
+Build: <code>docker build -t ps5instore .</code>
+
+Save to the file: <code>docker save ps5instore > ps5instore.tar</code>
 
 <h2>Setup</h2>
 
