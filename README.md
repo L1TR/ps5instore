@@ -24,6 +24,7 @@ All configuration variables are stored in the src/common/config.py
 4. (optional) DEFAULT_RETURN_ON_FAULT - if True, script will return "In Store" state <b>in case of any fail</b>
 
 <h3><i>Issues</i></h3>
+
 1. Walmart support requires a fix
 
 2. Amazon blocks from checking its inventory without using its API
