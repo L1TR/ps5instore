@@ -11,7 +11,7 @@ from bestbuy.bestbuy_checker import BestBuyChecker
 from sonydirect.queue_it_checker import QueueItChecker
 from common.config import STORES_TO_CHECK, Stores
 
-IS_DEBUG = False
+IS_DEBUG = False  # __debug__ doesn't work as expected in Docker
 
 
 class Runner(object):
@@ -83,6 +83,7 @@ class Runner(object):
         self.checkState(self.bestbuyChecker, "BestBuy")
 
     def checkSonyQueue(self):
+        print("Checking Sony Queue")
         is_queue = self.queueItChecker.checkQueue()
         if is_queue:
             if not self.states['queue']:

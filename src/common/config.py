@@ -1,10 +1,13 @@
+import os
 from common.consts import Stores
 
-STORES_TO_CHECK = [Stores.Sony, Stores.Target, Stores.GameStop]
+stores_from_env = os.getenv('STORES_TO_CHECK', None)
+STORES_TO_CHECK = [Stores(int(v)) for v in stores_from_env.split(",")] if stores_from_env else [Stores.Sony, Stores.Walmart, Stores.Target, Stores.GameStop, Stores.BestBuy]
 
-TELEGRAM_TOKEN = "1491939565:AAH7Regr6eomY1-rLC1qtCF2zRF5-rEN3Ac"
-TELEGRAM_CHATID = ""
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN', "")
+TELEGRAM_CHATID = os.getenv('TELEGRAM_CHATID', "")
 
-BESTBUY_DEVKEY = ""
+BESTBUY_DEVKEY = os.getenv('BESTBUY_DEVKEY', "")
 
-DEFAULT_RETURN_ON_FAULT = False
+return_on_fault_env = os.getenv('DEFAULT_RETURN_ON_FAULT', False)
+DEFAULT_RETURN_ON_FAULT = return_on_fault_env == "True" or return_on_fault_env == True
