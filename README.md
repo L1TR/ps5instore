@@ -9,7 +9,7 @@ All configuration variables are stored in the src/common/config.py
 1. (required) <b>Telegram</b> bot to receive updates
 - Register your own bot: https://core.telegram.org/bots#6-botfather
 - Go to the <code>htt<span>ps://api.telegram.org/bot{your_token}/getUpdates</code> to get chat id
-- Change variables TELEGRAM_TOKEN and TELEGRAM_CHATID in config
+- Provide TELEGRAM_TOKEN and TELEGRAM_CHATID as ENV variables or change defaults in dockerfile
 
 2. (optional) <b>BestBuy</b>
 - Register at https://developer.bestbuy.com/
